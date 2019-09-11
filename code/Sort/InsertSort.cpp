@@ -3,16 +3,12 @@ using namespace std;
 
 void InsertSort(int * nums, int l, int h)
 {
-  for(int i = l; i < h; i++)
+  for(int i = l+1; i < h; i++)
   {
-    int j = i;
-    int tmp = nums[j];
-    while(j > 0 && nums[j] < nums[j-1])
+    for(int j = i; j > l && nums[j]<nums[j-1]; j-- )
     {
-      nums[j] = nums[j-1];
-      j--;
+      swap(nums[j],nums[j-1]);
     }
-    nums[j] = tmp;
   }
   return;
 }
